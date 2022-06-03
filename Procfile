@@ -1,1 +1,1 @@
-gunicorn blog.wsgi
+gunicorn codeDiary.wsgi
