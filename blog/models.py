@@ -12,8 +12,8 @@ class Profile(models.Model):
     user = models.OneToOneField(
         User, on_delete=models.CASCADE
         )
-    avatar = CloudinaryField(
-        'profile_image',default='default_image.svg'
+    profile_avatar = CloudinaryField(
+        'profile_image',default='v1654350915/default/default_image_nrmi4l.svg'
         )
     created_on = models.DateTimeField(
         auto_now_add=True
@@ -54,11 +54,10 @@ class Post(models.Model):
         verbose_name=("created_on"),
         auto_now_add=True
         )
-    post_image = models.ImageField(
-        verbose_name=("post_image"),
+    post_image = CloudinaryField(
+        'profile_image',default='v1653941345/default/pexels-abdul-kayum-10845119_iwtq8i.jpg',
         null=True,
         blank=True,
-        upload_to=""
     )
     
     class Meta:
