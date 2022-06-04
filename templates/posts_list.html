@@ -16,10 +16,10 @@
   <div class="row">
     <div class="card-group mb-5">
       {% for post in post_list %}
-      <div class="card p-1 m-1 border">
+      <div class="card col-md-4 p-1 m-1 border">
         <img class="card-img-top" src="{{ post.post_image.url }}" alt="post image" width="50%">
         <div class="card-body">
-          <div class="col-md-8">
+          <div class="col-md-12">
             <h2 class="card-title">{{ post.title }}</h2>
             <p class="card-text text-muted h6">{{ post.owner }} | {{ post.created_on|date:"F d Y" }} </p>
           </div>

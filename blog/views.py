@@ -8,7 +8,7 @@ class PostList(ListView):
     model = Post
     queryset = Post.objects.order_by("-created_on")
     template_name = "posts_list.html"
-    paginate_by = 4
+    paginate_by = 3
     
 class PostDetail(View):
     
