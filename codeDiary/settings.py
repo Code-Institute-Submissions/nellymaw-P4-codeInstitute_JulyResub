@@ -38,6 +38,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["code-diary-blog.herokuapp.com", "localhost","127.0.0.1"]
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,6 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'cloudinary_storage',
     'crispy_forms',
     'django.contrib.staticfiles',
@@ -53,6 +58,13 @@ INSTALLED_APPS = [
     'cloudinary',
     'blog',
 ]
+
+SITE_ID = 1
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
