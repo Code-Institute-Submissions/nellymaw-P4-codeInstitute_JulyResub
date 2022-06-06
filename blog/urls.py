@@ -18,5 +18,8 @@ urlpatterns = [
           'like/<slug:slug>', 
           views.PostLike.as_view(), 
           name='post_like'
-          )
+          ),
+     path("posts/<int:pk>/remove",
+          views.DeletePostView.as_view(),
+          name="deletepost"),
      ]

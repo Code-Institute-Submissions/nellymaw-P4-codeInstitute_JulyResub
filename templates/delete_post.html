@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %} Edit post {% endblock %}
+{% block content %}
+
+<div class="container col-lg-8 col-md-10">
+    <div class="mx-auto justify-content-center">
+        <h4 class="header-style header-title-color"> Delete Post </h4>
+        <div class="post-color mb-2 pl-2 pt-1 pb-1 rounded">
+            {% if user.is_authenticated %}
+                {% if user.id == post.owner.id %}
+                    <h4>Post - {{ post.title }} </h4>
+                    <div class="form-group">
+                        <form method="POST" enctype="multipart/form-data" class="mt-4">
+                            {% csrf_token %}
+                            <strong>Are you sure? </strong>
+                            <br>
+                            <a href="{% url 'post_detail' post.id %}" class="btn btn-secondary btn-border-none" aria-label="Go back to post">Cancel</a>
+                            <button class="btn btn-danger" aria-label="delete post">Delete post! </button>
+                        </form>
+                    </div>
+                {% else %}
+                    <h4>You can not delete this post</h4>
+                {% endif %}
+            {% else %}
+                <h4>You are not logged in</h4>
+            {% endif %}     
+        </div>
+    </div>
+</div>
+
+{% endblock %}

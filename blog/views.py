@@ -1,8 +1,11 @@
 from django.shortcuts import render, get_object_or_404, reverse
-from django.views.generic import ListView, View
+from django.views.generic import ListView, View, DeleteView
 from .models import Post
 from .forms import CommentForm
 from django.http import HttpResponseRedirect
+from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse_lazy
+
 
 # Create your views here.
 
@@ -86,3 +89,17 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+    
+class DeletePostView(SuccessMessageMixin, DeleteView):
+    """
+    A view to delete a post
+    Args:
+        SuccessMessageMixin: SuccessMessageMixin (success message attribute)
+        DeleteView: class based view
+    Returns:
+        Render of delete post with success message
+    """
+    model = Post
+    template_name = "delete_post.html"
+    success_url = reverse_lazy("home")
+    success_message = "Post deleted"

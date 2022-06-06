@@ -7,7 +7,11 @@
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
                 <h1 class="post-title">{{ post.title }}</h1>
-
+                {% if user.is_authenticated %}
+                    {% if user.id == post.owner.id %}
+                            <a href="{% url 'deletepost' post.pk %}" class="text-white" aria-label="delete post link"> Delete</a>
+                    {% endif %}
+                {% endif %}
                 <p class="post-subtitle">{{ post.owner }} | {{ post.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
@@ -69,7 +73,8 @@
                     </div>
                     {% endfor %}
                 {% else %}
-                <p>Be the first one to comment!</p>
+                <small><a href="{% url 'account_login' %}" class="card-links mb-2 ml-3" aria-label="sign in to comment link">Sign In to comment</a>
+                </small>
                 {% endif %}
             </div>
         </div>
