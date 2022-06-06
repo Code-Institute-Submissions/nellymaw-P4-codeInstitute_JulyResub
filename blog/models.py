@@ -44,8 +44,15 @@ class Post(models.Model):
         blank=True
         )
     owner = models.ForeignKey(
-        User, on_delete=models.CASCADE,
-        related_name="post_owner")
+        User, 
+        on_delete=models.CASCADE,
+        related_name="post_owner"
+        )
+    likes = models.ManyToManyField(
+        User, 
+        related_name='blogpost_upvote', 
+        blank=True
+        )
     updated = models.DateTimeField(
         verbose_name=("updated"),
         auto_now=True
@@ -74,6 +81,9 @@ class Post(models.Model):
             The post title string
         """
         return str(self.title)
+    
+    def number_of_likes(self):
+        return self.likes.count()
 
     def get_absolute_url(self):
         """

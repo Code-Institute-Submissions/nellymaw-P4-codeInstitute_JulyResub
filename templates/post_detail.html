@@ -1,16 +1,42 @@
 {% extends 'base.html' %} 
+{% block title %}
+ | {{post.title}}   
+{% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
-{% url '' as delete_comment %}
+
 <div class="masthead mt-5">
     <div class="container">
         <div class="row g-0">
-            <div class="col-md-6 masthead-text">
+            <div class="col-md-8 masthead-text">
                 <h1 class="post-title">{{ post.title }}</h1>
                 <p class="post-subtitle">{{ post.owner }} | {{ post.created_on }}</p>
             </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
+            <div class="d-none d-md-block col-md-4 masthead-image">
                 <img src=" {{ post.post_image.url }}" width="100%">
+            </div>
+            <div class="row">
+                <div class="col-1 d-flex justify-content-center">
+                    {% if user.is_authenticated%}
+                    <form action="{% url 'post_like' post.slug%}" method='POST'>
+                        {% csrf_token%}
+                        {% if liked %}
+                        <button type="submit" name="blogspot_id" value="{{post.slug}}" class="btn-like"><i class="fas fa-heart" ></i></button>
+                        {% else %}
+                        <button type="submit" name="blogspot_id" value="{{post.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
+                        {% endif %}
+                    </form>
+                    {% else %}
+                    <span class="text-secondary"><i class="far fa-heart"></i></span>
+                    {% endif %}
+                    <strong class="text-secondary text-center"> {{ post.number_of_likes }} </strong>
+                </div>
+                <div class="col-1">
+                {% with comments.count as total_comments %}
+                <strong class="text-secondary"><i class="far fa-comments"></i>
+                    {{ total_comments }}</strong>
+                </div>
+                {% endwith %}
             </div>
         </div>
     </div>
@@ -18,7 +44,7 @@
 
 <div class="container">
     <div class="row d-flex justify-content-center">
-        <div class="row">        
+        <div class="row">            
             <div class="col-12 card mb-4 mt-3 left top">
                 <div class="card-body">
                     <p class="card-text">
@@ -27,8 +53,62 @@
                 </div>
             </div>
         </div>
+    
+    <div class="row mb-5 d-flex justify-content-center">
+        <div class="col-md-6 card mb-4 mt-3 ml-3 mr-3 border">
+            <h3>Comments:</h3>
+            <div class="card-body">
+                {% if comments %}
+                    {% for comment in comments %}
+                    <div class="comments" style="padding: 10px;">
+                        <p class="font-weight-bold">
+                            {{ comment.name }}
+                            <span class=" text-muted font-weight-normal">
+                                {{ comment.created_on }}
+                            </span> wrote:
+                        </p>
+                        {% if comment.name == request.user.username %}
+                        <div tabindex="-1" class="modal bs-example-modal-sm" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-sm">
+                              <div class="modal-content">
+                                <div class="modal-header"><h4>Delete Commant <i class="fa fa-lock"></i></h4></div>
+                                <div class="modal-body"><i class="fa fa-question-circle"></i> Are you sure you want to log-off?</div>
+                                <div class="modal-footer"><a class="btn btn-primary btn-block bg-danger" href="{{ url_logout }}">Logout</a></div>
+                              </div>
+                            </div>
+                          </div>
+                        <a href="{% url 'comments:delete_comment' comment.id%}">Delete</a>
+                        {% endif %}
+                        {{ comment.body | linebreaks }}
+                    </div>
+                    {% endfor %}
+                {% else %}
+                <p>No one has commented yet.</p>
+                {% endif %}
+            </div>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="col-md-5 card mb-4 mt-3 mr-3 border">
+            <div class="card-body">
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Your comment has been sent.
+                </div>
+                {% else %}
+                <h3>Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-signup btn-lg bg-primary text-white">Submit</button>
+                </form>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
     </div>
 </div>
-
+</div>
+</div>
 
 {% endblock content %}
