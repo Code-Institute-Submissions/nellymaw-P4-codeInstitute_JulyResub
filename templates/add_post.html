@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+ | Create a post
+{% endblock %}
+{% block content %}
+
+
+
+
+
+<div class="container col-lg-8 col-md-10 mt-2">
+    {% if user.is_authenticated %}
+    <h4 class="header-style header-title-color"> Add a new post</h4>
+    <div class="post-color mb-2 pt-1 pb-1 rounded">
+            <div class="col-12">
+                <div class="form-group">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% crispy form %}
+                    </form>
+                </div>
+            </div>
+        {% else %}
+            <h4>You need to be logged in to add a new post. <a href="{% url 'account_login' %}">Login<a/></h4>
+            <h3>Or <a href="{% url 'account_signup' %}">register here<a/></h3>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

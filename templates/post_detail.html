@@ -9,7 +9,11 @@
                 <h1 class="post-title">{{ post.title }}</h1>
                 {% if user.is_authenticated %}
                     {% if user.id == post.owner.id %}
-                            <a href="{% url 'deletepost' post.pk %}" class="text-white" aria-label="delete post link"> Delete</a>
+                            <button class="btn btn-primary col-md-2">
+                                <a href="{% url 'deletepost' post.pk %}" class="text-white" aria-label="delete post link">
+                                    Delete
+                                </a>
+                            </button>
                     {% endif %}
                 {% endif %}
                 <p class="post-subtitle">{{ post.owner }} | {{ post.created_on }}</p>
@@ -25,7 +29,7 @@
     <div class="row d-flex justify-content-center">
         <div class="row">
             <div class="col-1 d-flex justify-content-center">
-                {% if user.is_authenticated%}
+                {% if user.is_authenticated %}
                 <form action="{% url 'post_like' post.slug%}" method='POST'>
                     {% csrf_token%}
                     {% if liked %}
@@ -73,8 +77,11 @@
                     </div>
                     {% endfor %}
                 {% else %}
-                <small><a href="{% url 'account_login' %}" class="card-links mb-2 ml-3" aria-label="sign in to comment link">Sign In to comment</a>
-                </small>
+                <p>Be the first one to comment!</p>
+                {% if user.is_authenticated %}
+                {% else %}
+                <p><a href="{% url 'account_login' %}" class="card-links mb-2 ml-3" aria-label="sign in to comment link">Sign In to comment</a></p>
+                {% endif %}
                 {% endif %}
             </div>
         </div>

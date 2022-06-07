@@ -1,15 +1,26 @@
-from django.shortcuts import render, get_object_or_404, reverse
-from django.views.generic import ListView, View, DeleteView
-from .models import Post
-from .forms import CommentForm
+from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.views.generic import ListView, View, DeleteView, CreateView
 from django.http import HttpResponseRedirect
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
+from django.template.defaultfilters import slugify
+from django.contrib import messages
 
+from .models import Post
+from .forms import CommentForm, PostForm
 
 # Create your views here.
 
 class PostList(ListView):
+    
+    """
+    A view to show 3 lastest posts ordered by created
+    Args:
+        ListView: class based view
+    Returns:
+        Render of home page with context
+    """
+    
     model = Post
     queryset = Post.objects.order_by("-created_on")
     template_name = "posts_list.html"
@@ -17,19 +28,14 @@ class PostList(ListView):
     
 class PostDetail(View):
     
-    def get(self, request, slug, *args, **kwargs):
-        queryset = Post.objects
-        post = get_object_or_404(queryset, slug=slug)
-
-        return render(
-            request,
-            "post_detail.html",
-            {
-                "post": post,
-            },
-        )
-
-class PostDetail(View):
+    """
+    A view to show individual post, detail
+    Update the variables, whether the user has voted and if they have upvoted
+    Args:
+        PostDetail: class based view
+    Returns:
+        Render of post detail with context
+    """
     
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects
@@ -80,6 +86,14 @@ class PostDetail(View):
 
 
 class PostLike(View):
+    """
+    A view to show individual post, detail
+    Update the variables, whether the user has voted and if they have upvoted
+    Args:
+        PostView: class based view
+    Returns:
+        Return a True or False depending on whether the user has liked the post
+    """
     
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
@@ -103,3 +117,32 @@ class DeletePostView(SuccessMessageMixin, DeleteView):
     template_name = "delete_post.html"
     success_url = reverse_lazy("home")
     success_message = "Post deleted"
+    
+def AddPost(request):
+    """
+    A view to add a post, redirects to the post when submitted
+    Args:
+        request (object): HTTP request object.
+    Returns:
+        Render of post form with context
+    """
+    if not request.user.is_authenticated:
+        messages.error(
+            request, 'Sorry, only logged in users can create a post.')
+        return redirect(reverse('home'))
+    form = PostForm()
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.slug = slugify(request.POST["title"])
+            post.owner = request.user
+            post.user_name = request.user.username
+            post.post_image = request.FILES.get("post_image")
+            post.owner = request.user
+            post.save()
+            messages.success(request, 'Post submitted')
+            return redirect(reverse("post_detail", args=[post.slug]))
+    context = {"form": form,}
+    return render(request, "add_post.html", context)

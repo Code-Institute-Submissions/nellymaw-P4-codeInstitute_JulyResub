@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 from cloudinary.models import CloudinaryField
 
 
@@ -41,7 +42,6 @@ class Post(models.Model):
         )
     body = models.TextField(
         verbose_name=("body"),
-        blank=True
         )
     owner = models.ForeignKey(
         User, 
@@ -62,7 +62,7 @@ class Post(models.Model):
         auto_now_add=True
         )
     post_image = CloudinaryField(
-        'profile_image',default='v1653941345/default/pexels-abdul-kayum-10845119_iwtq8i.jpg',
+        'Post Image',default='v1653941345/default/pexels-abdul-kayum-10845119_iwtq8i.jpg',
         null=True,
         blank=True,
     )
@@ -93,7 +93,7 @@ class Post(models.Model):
         Returns:
             The url string posts/post pk
         """
-        return f"/posts/{self.pk}"
+        return reverse('post', args=(str(self.id)))
 
 class Comment(models.Model):
     """
