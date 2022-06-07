@@ -2,11 +2,11 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views.generic import ListView, View, DeleteView, UpdateView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.template.defaultfilters import slugify
 from django.contrib import messages
-from django.utils.decorators import method_decorator
 
 
 from .models import Post, Profile
@@ -89,7 +89,7 @@ class PostDetail(View):
 
 
 
-class PostLike(View):
+class PostLike(LoginRequiredMixin, View):
     """
     A view to show individual post, detail
     Update the variables, whether the user has voted and if they have upvoted
@@ -110,7 +110,7 @@ class PostLike(View):
     
     
 
-class DeletePostView(SuccessMessageMixin, DeleteView):
+class DeletePostView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     """
     A view to delete a post
     Args:
@@ -158,6 +158,13 @@ def AddPost(request):
 
 @login_required
 def EditProfile(request):
+    """
+    Update an existing profile
+    Args:
+        request (object): HTTP request object.
+    Returns:
+        Render of profile edit page
+    """
     profile = Profile.objects.get(user=request.user)
     form = ProfileForm(request.POST or None, request.FILES or None, instance = profile)
     confirm = False
@@ -173,8 +180,8 @@ def EditProfile(request):
     }
     return render(request, 'edit_profile.html', context)
 
-@method_decorator(login_required, name='dispatch')
-class UpdatePostView(SuccessMessageMixin, UpdateView):
+
+class UpdatePostView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     """
     A view to edit a post
     Args:

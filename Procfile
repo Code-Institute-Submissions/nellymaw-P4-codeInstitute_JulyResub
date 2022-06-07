@@ -1,1 +1,1 @@
-gunicorn codeDiary.wsgi
+web: gunicorn codeDiary.wsgi

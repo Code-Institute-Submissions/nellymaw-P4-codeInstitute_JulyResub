@@ -24,7 +24,7 @@ class PostForm(forms.ModelForm):
         """
         Set title,body,post image label to false and
         Set placeholders for title and body
-        Show title, body, post_image, enable voting and submit button
+        Show title, body, post_image and submit button
         Args:
             self (object): Self object
             *args: *args
