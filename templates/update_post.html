@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %} | Edit post {% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+    {% if user.id == post.owner.id %}
+        <div class="container col-lg-8 col-md-10">
+            <div class="row mx-auto justify-content-center">
+                <div class="col">
+                    <h4 class="header-style header-title-color"> Update post</h4>
+                    <div class="post-color mb-2 px-2 py-2 rounded"> 
+                        <div class="form-group pr-1">
+                            <form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {% crispy form %}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <h4>You can not edit this post</h4>
+    {% endif %}
+{% else %}
+    <h4>You are not logged in</h4>
+{% endif %}
+
+{% endblock %}

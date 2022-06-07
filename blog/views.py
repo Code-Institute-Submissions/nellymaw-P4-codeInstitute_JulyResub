@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.views.generic import ListView, View, DeleteView, CreateView
+from django.views.generic import ListView, View, DeleteView, UpdateView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.template.defaultfilters import slugify
 from django.contrib import messages
+from django.utils.decorators import method_decorator
 
 
 from .models import Post, Profile
@@ -171,3 +172,23 @@ def EditProfile(request):
         'confirm': confirm,
     }
     return render(request, 'edit_profile.html', context)
+
+@method_decorator(login_required, name='dispatch')
+class UpdatePostView(SuccessMessageMixin, UpdateView):
+    """
+    A view to edit a post
+    Args:
+        SuccessMessageMixin: SuccessMessageMixin (success message attribute)
+        UpdateView: class based view
+    Returns:
+        Render of update post with success message
+    """
+    model = Post
+    form_class = PostForm
+    template_name = "update_post.html"
+    success_message = "Post updated"
+    success_url = reverse_lazy("home")
+
+    def get_queryset(self):
+        owner = self.request.user
+        return self.model.objects.filter(owner=owner)

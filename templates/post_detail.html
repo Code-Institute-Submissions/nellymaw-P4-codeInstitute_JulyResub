@@ -9,11 +9,17 @@
                 <h1 class="post-title">{{ post.title }}</h1>
                 {% if user.is_authenticated %}
                     {% if user.id == post.owner.id %}
-                            <button class="btn btn-primary col-md-2">
-                                <a href="{% url 'deletepost' post.pk %}" class="text-white" aria-label="delete post link">
+                            <a href="{% url 'update_post' post.pk %}" aria-label="update post link">
+                                <button class="btn btn-success col-md-2 ml-1">
+                                    Update
+                                </button>
+                            </a>
+                            <a href="{% url 'deletepost' post.pk %}" aria-label="delete post link">
+                                <button class="btn btn-delete col-md-2">
                                     Delete
-                                </a>
-                            </button>
+                                </button>
+                            </a>
+                            
                     {% endif %}
                 {% endif %}
                 <p class="post-subtitle">{{ post.owner }} | {{ post.created_on }}</p>

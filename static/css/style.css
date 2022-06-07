@@ -185,3 +185,17 @@ body {
     padding: 5px 12px;
     font-size: 18px;
 }
+
+.btn-delete {
+    background-color: #ffffff;
+    color: #e95420;
+    border: 1px solid #e95420;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+.btn-delete:hover,
+.btn-delete:active {
+    color: #ffffff;
+    background-color: #e95420;
+    border-color: #ffffff;
+}
