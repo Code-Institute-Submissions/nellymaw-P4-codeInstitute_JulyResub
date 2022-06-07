@@ -3,12 +3,13 @@ from crispy_forms.layout import Submit, Row, Column, Layout, Field
 from crispy_forms.bootstrap import FormActions
 from django import forms
 
-from .models import Comment, Post
+from .models import Profile, Post, Comment
 
-class CommentForm(forms.ModelForm):
+class ProfileForm(forms.ModelForm):
     class Meta:
-        model = Comment
-        fields = ('comment_body',)
+        model = Profile
+        exclude = ('user',)
+
 
 class PostForm(forms.ModelForm):
     """
@@ -43,7 +44,8 @@ class PostForm(forms.ModelForm):
                 placeholder="Post title - Make this interesting"),
             Field(
                 "body",
-                placeholder="Anything else to say?"),
+                placeholder="Anything else to say?",
+                css_class="mt-2"),
             Row(
                 Column(
                     Field(
@@ -53,8 +55,14 @@ class PostForm(forms.ModelForm):
                     Submit(
                         "submit",
                         "Submit post",
-                        css_class="btn btn-primary"
+                        css_class="btn btn-primary mt-2"
                         )
                 ),
             ),
         )
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('comment_body',)

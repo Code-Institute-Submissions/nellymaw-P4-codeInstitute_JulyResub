@@ -30,7 +30,7 @@
           </button>
           <!--Dropdown Menu-->
           <div class="dropdown-menu dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="{{ edit_profile }}">Edit Profile</a>
+            <a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Profile</a>
             <div class="dropdown-divider"></div>
             <button class="btn dropdown-item"><a class="btn btn-primary btn-block bg-danger" href="{% url 'account_logout' %}">Logout</a></button>
           </div>

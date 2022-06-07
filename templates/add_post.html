@@ -6,14 +6,10 @@
 {% endblock %}
 {% block content %}
 
-
-
-
-
-<div class="container col-lg-8 col-md-10 mt-2">
-    {% if user.is_authenticated %}
+<div class="container col-lg-8 col-md-10">
     <h4 class="header-style header-title-color"> Add a new post</h4>
     <div class="post-color mb-2 pt-1 pb-1 rounded">
+        {% if user.is_authenticated %}
             <div class="col-12">
                 <div class="form-group">
                     <form method="POST" enctype="multipart/form-data">
@@ -23,8 +19,7 @@
                 </div>
             </div>
         {% else %}
-            <h4>You need to be logged in to add a new post. <a href="{% url 'account_login' %}">Login<a/></h4>
-            <h3>Or <a href="{% url 'account_signup' %}">register here<a/></h3>
+            <h4>You are not logged in</h4>
         {% endif %}
     </div>
 </div>

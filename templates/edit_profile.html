@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+    | My profile
+{% endblock title %}
+
+{% block content %}
+
+    {% if confirm %}
+    <div class="alert alert-dismissible alert-success container mt-3" id="dismissible-alert" >
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Well done!</strong> Your profile has been updated.
+    </div>
+    {% endif %}
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="text-center container mt-5" id="container-btn">
+            <h2 class="text-center">{{ profile.user }}</h2>
+            <h5 class="text-center">Joined at: {{profile.created_on|date:"F d Y P" }}</h5>
+            <hr>
+        </div>
+        
+        <div class="container col-md-8 mb-2">
+            <div class="rowt align-items-end justify-content-center">
+                <div class="col-md-2">
+                    <img src="{{user.profile.profile_avatar.url}}" alt="Profile Picture" class="avatar-big mt-3" style="border-radius:3px;">
+                </div>
+                <div class="col-md-3 p-0">
+                    <h5 class="d-flex align-items-start">Update your profile picture</h5>
+                    <input type="file" name="profile_avatar" class="clearablefileinput form-control-file" id="id_profile_avatar">
+                </div>
+            </div>
+            <hr>
+            <button type="submit" class="btn btn-success mb-5">Save Changes</button>
+        </div>
+    </form>
+{% endblock content %}

@@ -14,7 +14,9 @@ class Profile(models.Model):
         User, on_delete=models.CASCADE
         )
     profile_avatar = CloudinaryField(
-        'profile_image',default='v1654350915/default/default_image_nrmi4l.svg'
+        'image',
+        default='v1654350915/default/default_image_nrmi4l.svg',
+        blank=True
         )
     created_on = models.DateTimeField(
         auto_now_add=True
@@ -62,10 +64,10 @@ class Post(models.Model):
         auto_now_add=True
         )
     post_image = CloudinaryField(
-        'Post Image',default='v1653941345/default/pexels-abdul-kayum-10845119_iwtq8i.jpg',
-        null=True,
-        blank=True,
-    )
+        'image',
+        default='v1653941345/default/pexels-abdul-kayum-10845119_iwtq8i.jpg',
+        blank=True
+        )
     
     class Meta:
         verbose_name = "Post"

@@ -148,7 +148,40 @@ body {
     border: none;
 }
 
+.avatar-big {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.avatar-md {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
 .avatar-sm {
     height: 40px;
     width: 40px;
+    border-radius: 50%;
+}
+
+.arrow-down {
+    border-radius: 0 5px 5px 0;
+    border-left: 1px solid #758392;
+}
+
+#update-avatar {
+    color: white;
+    font-size: 16px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: padding 0.5s, font-size 0.5s;
+}
+
+#update-avatar:hover {
+    padding: 5px 12px;
+    font-size: 18px;
 }

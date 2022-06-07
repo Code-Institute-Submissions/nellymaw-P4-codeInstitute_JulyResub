@@ -1,13 +1,15 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views.generic import ListView, View, DeleteView, CreateView
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.template.defaultfilters import slugify
 from django.contrib import messages
 
-from .models import Post
-from .forms import CommentForm, PostForm
+
+from .models import Post, Profile
+from .forms import ProfileForm, PostForm, CommentForm
 
 # Create your views here.
 
@@ -85,6 +87,7 @@ class PostDetail(View):
         )
 
 
+
 class PostLike(View):
     """
     A view to show individual post, detail
@@ -104,6 +107,8 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
     
+    
+
 class DeletePostView(SuccessMessageMixin, DeleteView):
     """
     A view to delete a post
@@ -117,7 +122,9 @@ class DeletePostView(SuccessMessageMixin, DeleteView):
     template_name = "delete_post.html"
     success_url = reverse_lazy("home")
     success_message = "Post deleted"
-    
+ 
+ 
+@login_required   
 def AddPost(request):
     """
     A view to add a post, redirects to the post when submitted
@@ -146,3 +153,21 @@ def AddPost(request):
             return redirect(reverse("post_detail", args=[post.slug]))
     context = {"form": form,}
     return render(request, "add_post.html", context)
+
+
+@login_required
+def EditProfile(request):
+    profile = Profile.objects.get(user=request.user)
+    form = ProfileForm(request.POST or None, request.FILES or None, instance = profile)
+    confirm = False
+    
+    if form.is_valid():
+        form.save()
+        confirm = True
+        
+    context = {
+        'profile': profile,
+        'form': form,
+        'confirm': confirm,
+    }
+    return render(request, 'edit_profile.html', context)
