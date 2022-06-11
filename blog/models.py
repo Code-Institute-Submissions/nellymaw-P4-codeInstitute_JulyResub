@@ -110,7 +110,7 @@ class Comment(models.Model):
         max_length=80
         )
     comment_body = models.TextField(
-        verbose_name=("comment_body"),
+        verbose_name=("comment body"),
         )
     created_on = models.DateTimeField(
         verbose_name=("created_on"),

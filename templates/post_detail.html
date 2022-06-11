@@ -1,36 +1,39 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% block title %} | {{ post.title }} {% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
 
-<div class="masthead">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <h1 class="post-title">{{ post.title }}</h1>
-                {% if user.is_authenticated %}
-                    {% if user.id == post.owner.id %}
-                            <a href="{% url 'update_post' post.pk %}" aria-label="update post link">
-                                <button class="btn btn-success col-md-2 ml-1">
-                                    Update
-                                </button>
-                            </a>
-                            <a href="{% url 'deletepost' post.pk %}" aria-label="delete post link">
-                                <button class="btn btn-delete col-md-2">
-                                    Delete
-                                </button>
-                            </a>
-                            
-                    {% endif %}
+<div class="container mt-2">
+    <div class="row g-0">
+        <div class="col-md-6 masthead-text p-1">
+            <h1 class="post-title">{{ post.title }}</h1>
+            {% if user.is_authenticated %}
+                {% if user.id == post.owner.id %}
+                <div class="container">
+                    <div class="row">
+                        <div>
+                        <a href="{% url 'update_post' post.pk %}" aria-label="update post link">
+                            <button class="btn btn-success col-md-3">
+                                Update
+                            </button>
+                        </a>
+                        <a href="{% url 'deletepost' post.pk %}" aria-label="delete post link">
+                            <button class="btn btn-delete col-md-3">
+                                Delete
+                            </button>
+                        </a>
+                        </div>
+                    </div>
+                </div>
                 {% endif %}
-                <p class="post-subtitle">{{ post.owner }} | {{ post.created_on }}</p>
-            </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                <img src=" {{ post.post_image.url }}" width="100%">
-            </div>
+            {% endif %}
+            <p class="post-subtitle">{{ post.owner }} | {{ post.created_on }}</p>
+        </div>
+        <div class="d-none d-md-block col-md-6 masthead-image">
+            <img src=" {{ post.post_image.url }}" width="100%">
         </div>
     </div>
 </div>
-
 <div class="container">
     <div class="row d-flex justify-content-center">
         <div class="row">
@@ -49,25 +52,26 @@
                 {% endif %}
                 <strong class="text-secondary text-center"> {{ post.number_of_likes }} </strong>
             </div>
-
-            <div class="col-1">
+            <div class="col-2">
             {% with comments.count as total_comments %}
             <strong class="text-secondary"><i class="far fa-comments"></i>
                 {{ total_comments }}</strong>
             </div>
             {% endwith %}
-            
-            <div class="col-12 card mb-4 mt-3 left top">
-                <div class="card-body">
-                    <p class="card-text">
-                        {{ post.body | safe }}
-                    </p>
-                </div>
-            </div>
         </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="card-body">
+            <p class="card-text">
+                {{ post.body | safe }}
+            </p>
+    </div>
     
-    <div class="row mb-5 d-flex justify-content-center">
-        <div class="col-md-6 card mb-4 mt-3 ml-3 mr-3 border">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6 card mt-3 ml-3 mr-3 border">
             <h3>Comments:</h3>
             <div class="card-body">
                 {% if comments %}

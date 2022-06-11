@@ -4,7 +4,7 @@
 {% load static %}
 
 <head>
-  <title>Coding Diary{% block title %}{% endblock title %}</title>  
+  <title>Code Diary{% block title %}{% endblock title %}</title>  
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
@@ -19,40 +19,60 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="mainNav">
-    <div class="container-fluid">
-      <a class="navbar-brand col-md-10" href="{% url 'home' %}">Coding Diary</a>
-      <div>
-      {% if request.user.is_authenticated %}
-        <img src="{{user.profile.profile_avatar.url}}" alt="Profile Picture" class="avatar-sm">
-        <div class="btn-group">
-          <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{request.user}}
-          </button>
-          <!--Dropdown Menu-->
-          <div class="dropdown-menu dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Profile</a>
-            <div class="dropdown-divider"></div>
-            <button class="btn dropdown-item"><a class="btn btn-primary btn-block bg-danger" href="{% url 'account_logout' %}">Logout</a></button>
+  <nav class="navbar navbar-light navbar-expand-md bg-primary justify-content-center">
+    <a href="{% url 'home' %}" class="navbar-brand d-flex mr-auto text-white">Code Diary</a>
+        <ul class="nav navbar-nav ml-auto justify-content-end">
+          {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <img src="{{user.profile.profile_avatar.url}}" alt="Profile Picture" class="avatar-sm">
+              <div class="btn-group">
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{request.user}}
+                </button>
+                <!--Dropdown Menu-->
+                <div class="dropdown-menu dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Profile</a>
+                  <div class="dropdown-divider"></div>
+                  <button class="btn dropdown-item"><a class="btn btn-primary btn-block bg-danger" href="{% url 'account_logout' %}">Logout</a></button>
+                </div>
+            </li>
+          {% else %}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse w-100" id="collapsingNavbar">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_login' %}"><button type="submit" id="btn-login" class="btn btn-primary btn-contrast">Login</button></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_signup' %}"><button type="submit" class="btn btn-signup">Register</button></a>
+            </li>
           </div>
-        </div>
-
-      {% else %}
-        <a href="{% url 'account_login' %}"><button type="submit" id="btn-login" class="btn btn-primary btn-contrast">Login</button><a/>
-        <a href="{% url 'account_signup' %}"><button type="submit" class="btn btn-signup">Register</button><a/>
-      </div>
-      {% endif %}
-      </div>
+          {% endif %}
+        </ul>
     </div>
   </nav>
-  
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible fade show mt-2" id="msg" role="alert">
+          {{ message | safe }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
   {% block content %}
   
   {% endblock content %}
   <footer class="bg-primary text-center text-lg-start mt-5 fixed-bottom">
     <div class="p-3 text-white text-center">
-        Copyright &copy; 2022 Coding Diary
+        Copyright &copy; 2022 Code Diary
     </div>
   </footer>
 </body>
-<script src="{% static 'script/script.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
 </html>

@@ -1,5 +1,5 @@
 {% if paginator %}
-    <div class="pagination justify-content-center mb-2" >
+    <div class="pagination justify-content-center mb-5" >
         <ul class="pagination">
         {% if page_obj.has_previous %}
             <li class="page-item "><a class="page-link" href="?q={{ query|urlencode }}&page={{ page_obj.previous_page_number }}">&laquo;</a>

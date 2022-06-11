@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="jumbotron mx-2 bg-white">
+  <h1 class="display-4">Something went wrong</h1>
+  <p class="lead">Please try again later.</p>
+  <hr class="my-4">
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{% url 'home' %}" 
+    role="button">Home page</a>
+  </p>
+</div>
+
+{% endblock %}

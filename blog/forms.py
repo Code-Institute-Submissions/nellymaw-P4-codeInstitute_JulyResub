@@ -50,15 +50,14 @@ class PostForm(forms.ModelForm):
                 Column(
                     Field(
                         "post_image",
-                        placeholder="Image Upload")),
-                FormActions(
+                        placeholder="Image Upload"))),
+                Row(
+                    FormActions(
                     Submit(
                         "submit",
                         "Submit post",
-                        css_class="btn btn-primary mt-2"
-                        )
-                ),
-            ),
+                        css_class="btn btn-primary ml-1"
+                        ))),
         )
 
 

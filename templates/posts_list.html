@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% block title %}
+ | Posts List
+{% endblock title%} 
 {% block content %}
 <header>
   <div class="container">
@@ -20,7 +23,7 @@
     <div class="card-group mb-5">
       {% for post in post_list %}
       <div class="card col-md-4 p-1 m-1 border">
-        <img class="card-img-top" src="{{ post.post_image.url }}" alt="post image" width="50%">
+        <img class="card-img-top" src="{{ post.post_image.url }}" alt="post image" style="max-width:100%; height:auto%">
         <div class="card-body">
           <div class="col-md-12">
             <h2 class="card-title">{{ post.title }}</h2>

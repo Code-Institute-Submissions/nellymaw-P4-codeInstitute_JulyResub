@@ -43,7 +43,7 @@ class PostDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
-        comments = post.comment_post.order_by("-created_on")
+        comments = post.comment_post.order_by("created_on")
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -199,3 +199,25 @@ class UpdatePostView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     def get_queryset(self):
         owner = self.request.user
         return self.model.objects.filter(owner=owner)
+    
+def error_404_view(request, exception):
+    """
+    A view to render 404 error page if the user goes to a non-exist url
+    Args:
+        request (object): HTTP request object.
+        exception: exception error
+    Returns:
+        Render 404error page
+    """
+    return render(request, 'error404.html', status=404)
+
+
+def error_500_view(request):
+    """
+    A view to render 500 error page if there is a server error
+    Args:
+        request (object): HTTP request object.
+    Returns:
+        Render 500error page
+    """
+    return render(request, 'error500.html', status=500)
