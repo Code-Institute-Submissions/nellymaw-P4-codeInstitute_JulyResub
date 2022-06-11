@@ -14,8 +14,9 @@ from .forms import ProfileForm, PostForm, CommentForm
 
 # Create your views here.
 
+
 class PostList(ListView):
-    
+
     """
     A view to show 3 lastest posts ordered by created
     Args:
@@ -23,14 +24,15 @@ class PostList(ListView):
     Returns:
         Render of home page with context
     """
-    
+
     model = Post
     queryset = Post.objects.order_by("-created_on")
     template_name = "posts_list.html"
     paginate_by = 3
-    
+
+
 class PostDetail(View):
-    
+
     """
     A view to show individual post, detail
     Update the variables, whether the user has voted and if they have upvoted
@@ -39,7 +41,7 @@ class PostDetail(View):
     Returns:
         Render of post detail with context
     """
-    
+
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
@@ -58,8 +60,8 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
+
     def post(self, request, slug, *args, **kwargs):
-    
         queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comment_post.order_by("-created_on")
@@ -88,7 +90,6 @@ class PostDetail(View):
         )
 
 
-
 class PostLike(LoginRequiredMixin, View):
     """
     A view to show individual post, detail
@@ -98,7 +99,7 @@ class PostLike(LoginRequiredMixin, View):
     Returns:
         Return a True or False depending on whether the user has liked the post
     """
-    
+
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
@@ -107,8 +108,7 @@ class PostLike(LoginRequiredMixin, View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
-    
-    
+
 
 class DeletePostView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     """
@@ -123,9 +123,9 @@ class DeletePostView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     template_name = "delete_post.html"
     success_url = reverse_lazy("home")
     success_message = "Post deleted"
- 
- 
-@login_required   
+
+
+@login_required
 def AddPost(request):
     """
     A view to add a post, redirects to the post when submitted
@@ -152,7 +152,7 @@ def AddPost(request):
             post.save()
             messages.success(request, 'Post submitted')
             return redirect(reverse("post_detail", args=[post.slug]))
-    context = {"form": form,}
+    context = {"form": form, }
     return render(request, "add_post.html", context)
 
 
@@ -166,13 +166,16 @@ def EditProfile(request):
         Render of profile edit page
     """
     profile = Profile.objects.get(user=request.user)
-    form = ProfileForm(request.POST or None, request.FILES or None, instance = profile)
+    form = ProfileForm(
+        request.POST or None,
+        request.FILES or None,
+        instance=profile)
     confirm = False
-    
+
     if form.is_valid():
         form.save()
         confirm = True
-        
+
     context = {
         'profile': profile,
         'form': form,
@@ -199,7 +202,8 @@ class UpdatePostView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     def get_queryset(self):
         owner = self.request.user
         return self.model.objects.filter(owner=owner)
-    
+
+
 def error_404_view(request, exception):
     """
     A view to render 404 error page if the user goes to a non-exist url

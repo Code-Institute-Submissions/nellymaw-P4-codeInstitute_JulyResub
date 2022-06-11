@@ -24,10 +24,11 @@ class Profile(models.Model):
     updated_on = models.DateTimeField(
         auto_now=True
         )
-    
+
     def __str__(self):
         return f' profile of {self.user.username}'
-    
+
+
 class Post(models.Model):
     """
     A class for the post model
@@ -46,13 +47,13 @@ class Post(models.Model):
         verbose_name=("body"),
         )
     owner = models.ForeignKey(
-        User, 
+        User,
         on_delete=models.CASCADE,
         related_name="post_owner"
         )
     likes = models.ManyToManyField(
-        User, 
-        related_name='blogpost_upvote', 
+        User,
+        related_name='blogpost_upvote',
         blank=True
         )
     updated = models.DateTimeField(
@@ -68,7 +69,7 @@ class Post(models.Model):
         default='v1653941345/default/pexels-abdul-kayum-10845119_iwtq8i.jpg',
         blank=True
         )
-    
+
     class Meta:
         verbose_name = "Post"
         verbose_name_plural = "Posts"
@@ -83,7 +84,7 @@ class Post(models.Model):
             The post title string
         """
         return str(self.title)
-    
+
     def number_of_likes(self):
         return self.likes.count()
 
@@ -96,6 +97,7 @@ class Post(models.Model):
             The url string posts/post pk
         """
         return reverse('post', args=(str(self.id)))
+
 
 class Comment(models.Model):
     """

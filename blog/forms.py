@@ -5,6 +5,7 @@ from django import forms
 
 from .models import Profile, Post, Comment
 
+
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
@@ -18,7 +19,6 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ("title", "body", "post_image",)
-        
 
     def __init__(self, *args, **kwargs):
         """
@@ -51,8 +51,8 @@ class PostForm(forms.ModelForm):
                     Field(
                         "post_image",
                         placeholder="Image Upload"))),
-                Row(
-                    FormActions(
+            Row(
+                FormActions(
                     Submit(
                         "submit",
                         "Submit post",

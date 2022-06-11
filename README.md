@@ -648,7 +648,7 @@ The user will see value of signing up to be able to create/edit/delete posts in 
     - Update and delete post link is displayed if the user is the owner of the post else no links will be displayed
     - Post image will displayed. If user have not uploaded one, a placeholder is set to automatically be put in place.
     - Users comments will be displayed in descending order.
-        
+
 <details>
 <summary>Click here to view image of a post - not logged in</summary>
 
@@ -693,6 +693,7 @@ The user will see value of signing up to be able to create/edit/delete posts in 
 <br>
 
 ### An owner of the post can **“Delete”** their post
+
 - Delete post is displayed in the header
 - Post title is displayed and a question to whether the user is sure to delete the post
 - User can click Cancel to go back to the post Or Delete post to delete the post from the database
