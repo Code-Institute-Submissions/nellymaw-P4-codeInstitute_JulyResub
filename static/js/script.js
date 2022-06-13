@@ -1,3 +1,6 @@
+/*jshint esversion: 6 */
+/*globals $:false */
+
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
     alertTimeOut();
@@ -6,7 +9,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 function alertTimeOut() {
     setTimeout(() => { $("#msg").fadeOut(1500); }, 1000);
-
 }
 
 function dismissAlert() {
