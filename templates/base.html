@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
 {% load static %}
 
 <head>
@@ -21,9 +20,9 @@
 <body>
   <nav class="navbar navbar-light navbar-expand-md bg-primary justify-content-center">
     <a href="{% url 'home' %}" class="navbar-brand d-flex mr-auto text-white">Code Diary</a>
-        <ul class="nav navbar-nav ml-auto justify-content-end">
+        <div class="nav navbar-nav ml-auto justify-content-end">
           {% if request.user.is_authenticated %}
-            <li class="nav-item">
+            <div class="nav-item">
               <img src="{{user.profile.profile_avatar.url}}" alt="Profile Picture" class="avatar-sm">
               <div class="btn-group">
                 <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{request.user}}
@@ -34,21 +33,21 @@
                   <div class="dropdown-divider"></div>
                   <button class="btn dropdown-item"><a class="btn btn-primary btn-block bg-danger" href="{% url 'account_logout' %}">Logout</a></button>
                 </div>
-            </li>
+            </div>
           {% else %}
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse w-100" id="collapsingNavbar">
-              <li class="nav-item">
+              <div class="nav-item">
                 <a class="nav-link" href="{% url 'account_login' %}"><button type="submit" id="btn-login" class="btn btn-primary btn-contrast">Login</button></a>
-              </li>
-              <li class="nav-item">
+              </div>
+              <div class="nav-item">
                 <a class="nav-link" href="{% url 'account_signup' %}"><button type="submit" class="btn btn-signup">Register</button></a>
-            </li>
+            </div>
           </div>
           {% endif %}
-        </ul>
+        </div>
     </div>
   </nav>
 
@@ -74,5 +73,7 @@
     </div>
   </footer>
 </body>
+
+
 <script src="{% static 'js/script.js' %}"></script>
 </html>

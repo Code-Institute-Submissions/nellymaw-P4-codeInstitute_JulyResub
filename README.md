@@ -44,6 +44,7 @@ ___
   - [3. Testing](#3-testing)
     - [i. User stories testing](#i-user-stories-testing)
     - [ii. Validation testing](#ii-validation-testing)
+      - [CSS](#css)
       - [Python](#python)
       - [JavaScript](#javascript)
     - [iv. Unfixed Bugs](#iv-unfixed-bugs)
@@ -811,6 +812,14 @@ User stories are tested with the current features. All user stories passed the t
 ___
 
 ### ii. Validation testing
+
+#### CSS
+
+<details><summary>
+Click on the link to see the Jigsaw validation testing</summary>
+
+[screen shot of Jigsaw validation test](readmeContent/validation/css/css.png)
+</details>
 
 #### Python
 
