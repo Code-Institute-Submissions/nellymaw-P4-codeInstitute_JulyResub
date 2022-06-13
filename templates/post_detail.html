@@ -30,7 +30,7 @@
             <p class="post-subtitle">{{ post.owner }} | {{ post.created_on }}</p>
         </div>
         <div class="d-none d-md-block col-md-6 masthead-image">
-            <img src=" {{ post.post_image.url }}" width="100%">
+            <img class="post-image" src="{{ post.post_image.url }}" alt="Post image">
         </div>
     </div>
 </div>
@@ -68,6 +68,7 @@
             <p class="card-text">
                 {{ post.body | safe }}
             </p>
+        </div>
     </div>
     
     <div class="row d-flex justify-content-center">
@@ -109,14 +110,12 @@
                     {{ comment_form | crispy }}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-signup btn-lg bg-primary text-white">Submit</button>
-                </form>
-                {% endif %}
-                {% endif %}
+                </form>  
             </div>
         </div>
+        {% endif %}
+        {% endif %}
     </div>
-</div>
-</div>
 </div>
 
 {% endblock content %}

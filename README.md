@@ -2,12 +2,35 @@
 
 **View the live site [here](https://code-diary-blog.herokuapp.com/)**
 
-![screenshot of Responsive Image](N/A)
+<details>
+<summary>Click here to view phone viewport</summary>
+
+![screenshot of phone viewport](readmeContent/docs/responsiveness/responsivephone.png)
+</details>
+
+<details>
+<summary>Click here to view tablet viewport</summary>
+
+![screenshot of tablet viewport](readmeContent/docs/responsiveness/responsivetablet.png)
+</details>
+
+<details>
+<summary>Click here to view laptop viewport</summary>
+
+![screenshot of laptop viewport](readmeContent/docs/responsiveness/responsivelaptop.png)
+</details>
+
+<details>
+<summary>Click here to view desktop viewport</summary>
+
+![screenshot of desktop viewport](readmeContent/docs/responsiveness/responsiveDesktop.png)
+</details>
 
 ___
+
 - [Code Diary](#code-diary)
   - [1. User Experience (UX)](#1-user-experience-ux)
-    - [**Project goals:**](#project-goals)
+    - [Project goals](#project-goals)
     - [Strategy](#strategy)
       - [User stories](#user-stories)
     - [Scope](#scope)
@@ -44,6 +67,7 @@ ___
   - [3. Testing](#3-testing)
     - [i. User stories testing](#i-user-stories-testing)
     - [ii. Validation testing](#ii-validation-testing)
+      - [HTML](#html)
       - [CSS](#css)
       - [Python](#python)
       - [JavaScript](#javascript)
@@ -61,9 +85,9 @@ ___
 
 ## 1. User Experience (UX)
 
-### **Project goals:**
+### Project goals
 
-To create a space where people can read/write about their daily struggles regarding coding. 
+To create a space where people can read/write about their daily struggles regarding coding.
 As this project was by far the most challenging and got me seriously having to go through a few imposter syndromes, I've decided, when I was creating a mock project(which eventually would lay down the basic idea for this project), that a space where venting, in a small circle however in a anonymous manner.
 
 ___
@@ -72,35 +96,35 @@ ___
 
 #### User stories
 
-As a **site user** I can **login with my username and password** so that **I can access the sites full functionality**
+1. As a **site user** I can **login with my username and password** so that **I can access the sites full functionality**
 
-As a **logged-in site user** I can **log out of my account** so that **other users cannot access my account**
+2. As a **logged-in site user** I can **log out of my account** so that **other users cannot access my account**
 
-As a **site user** I can **see the current logged-in state** so that I know if I can access logged in functionality
+3. As a **site user** I can **see the current logged-in state** so that I know if I can access logged in functionality
 
-As a **site user** I can **register** so that **I have a role-based login and functionality of commenting and liking posts**
+4. As a **site user** I can **register** so that **I may login and access the full functionality of commenting and liking posts**
 
-As a **guest/logged-in site user** I can **view the 'about us page** so that **I can understand more about the forum and its purpose**
+5. As a **guest/logged-in site user** I can **view the 'about us page** so that **I can understand more about the forum and its purpose**
 
-As a **site user**, i can **receive feedback if an API call fails, so that I receive a graceful UX and be correctly notified**
+6. As a **site user**, i can **receive feedback if an API call fails, so that I receive a graceful UX and be correctly notified**
 
-A a **guest/logged-in user** I can **view the latest 3 posts** so that **I can keep up to date with the latest posts**
+7. A a **guest/logged-in user** I can **view the latest 3 posts** so that **I can keep up to date with the latest posts**
 
-As a **guest user**, I can **view posts** so that **I can keep up to date with the latest posts and user comments**
+8. As a **guest user**, I can **view posts** so that **I can keep up to date with the latest posts and user comments**
 
-As a **Site User** I can **view a paginated list of posts** so that my **screen doesn't get overpopulated with posts**
+9. As a **Site User** I can **view a paginated list of posts** so that my **screen doesn't get overpopulated with posts**
 
-As a **guest/logged-in user** I can **click on a post** so that **I can read the full article and related comments**
+10. As a **guest/logged-in user** I can **click on a post** so that **I can read the full article and related comments**
 
-As a **logged-in site user** I can **like a post** so that **I make other readers and the writer of the post aware that I believe that post is worthwhile**
+11. As a **logged-in site user** I can **like a post** so that **I make other readers and the writer of the post aware that I believe that post is worthwhile**
 
-As a **logged-in user** I can **create a new post** so that **I can post content on the site for other users to view**
+12. As a **logged-in user** I can **create a new post** so that **I can post content on the site for other users to view**
 
-As a **logged in site user** I can **edit a post (subject header /text body)** so that I can change the content if required
+13. As a **logged in site user** I can **edit a post (subject header /text body)** so that I can change the content if required
 
-As a **logged-in site user** I can **leave comments on a post** so that **I can take an active role in the forum (be involved in the conversation/express my opinion)**
+14. As a **logged-in site user** I can **leave comments on a post** so that **I can take an active role in the forum (be involved in the conversation/express my opinion)**
 
-As a **Site User** I can **delete a post that I have posted** so that **I can take content off the website**
+15. As a **Site User** I can **delete a post that I have posted** so that **I can take content off the website**
 
 [Table of Contents](#home)
 ___
@@ -812,6 +836,15 @@ User stories are tested with the current features. All user stories passed the t
 ___
 
 ### ii. Validation testing
+
+
+#### HTML
+
+<details><summary>
+Click on the link to see the W3Validator validation testing</summary>
+
+[screen shot of Jigsaw validation test](readmeContent/validation/css/css.png)
+</details>
 
 #### CSS
 

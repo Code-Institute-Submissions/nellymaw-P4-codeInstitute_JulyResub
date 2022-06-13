@@ -201,5 +201,11 @@ body {
 }
 
 .asteriskField {
+    height: 200px;
     display: none;
+}
+
+.post-image {
+    width: auto;
+    height: 20em;
 }
