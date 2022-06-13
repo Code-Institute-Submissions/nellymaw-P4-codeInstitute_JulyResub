@@ -80,7 +80,6 @@ ___
     - [Languages](#languages)
     - [Other Technologies](#other-technologies)
   - [6. Credits](#6-credits)
-    - [Media](#media)
   - [7. Acknowledgements](#7-acknowledgements)
 
 ## 1. User Experience (UX)
@@ -1037,12 +1036,29 @@ ___
 
 See below list of tutorials and documentation i used throughout this project
 
-- The basic skelton setup for this project was based on  “I think therefore I blog project by the Code Institute 
+- The basic skelton setup for this project was based on  "I think therefore I blog project by the Code Institute"
 
-### Media
+- https://cloudinary.com/documentation/django_integration (which was ultimately scrapped along the project for a simplified method)
+- https://www.youtube.com/watch?v=04L0BbAcCpQ (which was found at freeCodeCamp)
+- https://www.youtube.com/watch?v=oU9kN13-Xbs (which was found at freeCodeCamp)
+- https://www.youtube.com/watch?v=kqyfEz7TNI0 (which was found at freeCodeCamp)
+- https://www.youtube.com/c/Codemycom - **Django Blog Series** (which was a massive help with some issues found along the way)
 
-___
+General troubleshoot
+
+- https://stackoverflow.com/questions/41883254/django-is-not-a-registered-namespace
+- https://stackoverflow.com/questions/36805137/how-to-pass-options-to-cloudinaryfield-in-django-model
+- https://stackoverflow.com/questions/3644902/how-to-check-if-a-user-is-logged-in-how-to-properly-use-user-is-authenticated
+- https://stackoverflow.com/questions/57200861/the-joined-path-is-located-outside-of-the-base-path-component
+- https://stackoverflow.com/questions/42491691/how-do-i-add-custom-css-to-crispy-forms
+- https://stackoverflow.com/questions/48034274/using-django-crispy-forms-how-do-you-shrink-the-text-box-for-a-textfield
+- https://stackoverflow.com/questions/17314548/display-date-and-time-in-django
 
 ## 7. Acknowledgements
+
+Massive thanks to the technology gurus out there, specially John Elder from codemy.com youtube channel who was an absolute legend through his youtube series, everyone involved with freeCodeCamp, all the staff at Code Institute.
+Special thanks to Lukaz Makinia from who most of my understanding of this language came from.
+
+
 
 [Table of Contents](#home)
