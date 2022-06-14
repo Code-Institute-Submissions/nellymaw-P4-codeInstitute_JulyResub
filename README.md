@@ -103,27 +103,25 @@ ___
 
 4. As a **site user** I can **register** so that **I may login and access the full functionality of commenting and liking posts**
 
-5. As a **guest/logged-in site user** I can **view the 'about us page** so that **I can understand more about the forum and its purpose**
+5. As a **site user**, i can **receive feedback if an URL is invalid, so that I receive a graceful UX and be correctly notified**
 
-6. As a **site user**, i can **receive feedback if an API call fails, so that I receive a graceful UX and be correctly notified**
+6. As a **guest/logged-in user** I can **view the latest 3 posts** so that **I can keep up to date with the latest posts**
 
-7. A a **guest/logged-in user** I can **view the latest 3 posts** so that **I can keep up to date with the latest posts**
+7. As a **guest user**, I can **view posts** so that **I can keep up to date with the latest posts and user comments**
 
-8. As a **guest user**, I can **view posts** so that **I can keep up to date with the latest posts and user comments**
+8. As a **Site User** I can **view a paginated list of posts** so that my **screen doesn't get overpopulated with posts**
 
-9. As a **Site User** I can **view a paginated list of posts** so that my **screen doesn't get overpopulated with posts**
+9. As a **guest/logged-in user** I can **click on a post** so that **I can read the full article and related comments**
 
-10. As a **guest/logged-in user** I can **click on a post** so that **I can read the full article and related comments**
+10. As a **logged-in site user** I can **like a post** so that **I make other readers and the writer of the post aware that I believe that post is worthwhile**
 
-11. As a **logged-in site user** I can **like a post** so that **I make other readers and the writer of the post aware that I believe that post is worthwhile**
+11. As a **logged-in user** I can **create a new post** so that **I can post content on the site for other users to view**
 
-12. As a **logged-in user** I can **create a new post** so that **I can post content on the site for other users to view**
+12. As a **logged in site user** I can **edit a post (subject header /text body)** so that I can change the content if required
 
-13. As a **logged in site user** I can **edit a post (subject header /text body)** so that I can change the content if required
+13. As a **logged-in site user** I can **leave comments on a post** so that **I can take an active role in the forum (be involved in the conversation/express my opinion)**
 
-14. As a **logged-in site user** I can **leave comments on a post** so that **I can take an active role in the forum (be involved in the conversation/express my opinion)**
-
-15. As a **Site User** I can **delete a post that I have posted** so that **I can take content off the website**
+14. As a **Site User** I can **delete a post that I have posted** so that **I can take content off the website**
 
 [Table of Contents](#home)
 ___
@@ -828,10 +826,222 @@ ___
 
 ### i. User stories testing
 
-User stories are tested with the current features. All user stories passed the tests.
+1. As a **site user** I can **login with my username and password** so that **I can access the sites full functionality**
 
-[Click on the link to go to user stories testing]()
+<details>
+<summary>
+Click here to see the user story validation
+</summary>
 
+Click on the login button located on the top right of the screen **(users of smaller screen it is found in the hamburger style menu)**
+
+![screen shot of login button](readmeContent/userStories/1.1.png)
+
+Proceed to populate the fields with the required information (username and password), then hit sign in located at the bottom of the login form
+
+![screen shot of login form](readmeContent/userStories/1.2.png)
+</details>
+
+2. As a **logged-in site user** I can **log out of my account** so that **other users cannot access my account**
+
+<details>
+<summary>
+Click here to see the user story validation
+</summary>
+
+Click on the user button located on the top right of the screen and press logout button to be redirected to the logout page.
+
+![screen shot of login button](readmeContent/userStories/2.1.png)
+
+Confirm intent to log out by pressing the logout button
+found at the bottom of the logout form.
+![screen shot of login form](readmeContent/userStories/2.2.png)
+</details>
+
+3. As a **site user** I can **see the current logged-in state** so that I know if I can access logged in functionality
+
+<details>
+<summary>
+Click here to see the user story validation
+</summary>
+
+At first moment after logging in the user will be redirected to the main page and a message explecitly indicating that he logged in will be displayed.
+
+![screen shot of login button](readmeContent/userStories/3.1.png)
+
+While logged in the user will proceed to see his/her profile picture at the end of the navbar followed by a dropdown menu containing the options to edit his profile or logout
+
+![screen shot of login form](readmeContent/userStories/3.2.png)<br>
+**If user is not logged in a "login" and a "register" button will be displayed instead*
+
+</details>
+
+4. As a **site user** I can **register** so that **I may login and access the full functionality of commenting and liking posts**
+
+<details>
+<summary>
+Click here to see the user story validation
+</summary>
+
+Press the **register button** to be redirected to the registration page
+
+![screen shot of login button](readmeContent/userStories/4.1.png)
+
+Fill in the required fields (email is optional) and press **Sign up** button.
+
+![screen shot of login button](readmeContent/userStories/4.2.png)
+
+**If all the information was correctly submited the new user will be logged in automatically.*
+
+</details>
+
+5. As a **site user**, i can **receive feedback if an URL is invalid, so that I receive a graceful UX and be correctly notified**
+
+<details>
+<summary>
+Click here to see the user story validation
+</summary>
+
+In case a URL is invalid a custom page will be displayed and the user will have the opportunity to go back to the main page through a button
+
+![screen shot of login button](readmeContent/userStories/5.1.png)
+
+</details>
+
+6. As a **guest/logged-in user** I can **view the latest 3 posts** so that **I can keep up to date with the latest posts**
+
+<details>
+<summary>
+Click here to see the user story validation
+</summary>
+
+Main page will display the 3 latest posts to any user accessing the website.
+
+![screen shot of login button](readmeContent/userStories/6.1.png)
+
+</details>
+
+7. As a **guest user**, I can **view posts** so that **I can keep up to date with the latest posts and user comments**
+
+<details>
+<summary>
+Click here to see the user story validation
+</summary>
+
+Upon clicking the **Read More** button displayed on the main page user will be redirected to the post page.
+
+![screen shot of login button](readmeContent/userStories/7.1.png)
+
+</details>
+
+8. As a **Site User** I can **view a paginated list of posts** so that my **screen doesn't get overpopulated with posts**
+
+<details>
+<summary>
+Click here to see the user story validation
+</summary>
+
+Pagination can be found at the bottom of the main page. Main page displays 3 posts per page.
+
+![screen shot of login button](readmeContent/userStories/8.1.png)
+</details>
+
+9. As a **guest/logged-in user** I can **click on a post** so that **I can read the full article and related comments**
+
+<details>
+<summary>
+Click here to see the user story validation
+</summary>
+
+**Read more** button,found at the bottom of each post in main page post list, redirects user to the post page.
+
+![screen shot of login button](readmeContent/userStories/9.1.png)
+
+All users can see the post image, post title, ammount of likes and comments, post body and the comments.<br>
+**Only logged in users can comment*
+
+![screen shot of login button](readmeContent/userStories/9.2.png)
+</details>
+
+10. As a **logged-in site user** I can **like a post** so that **I make other readers and the writer of the post aware that I believe that post is worthwhile**
+
+<details>
+<summary>
+Click here to see the user story validation
+</summary>
+
+Logged in users can click on the "like" button(heart shaped), located underneath the post header.
+
+![screen shot of login button](readmeContent/userStories/10.1.png)
+
+Once clicked the icon will change to a filled heart (the amount of likes will also automatically be updated to the latest number when the page was loaded.)
+
+![screen shot of login button](readmeContent/userStories/10.2.png)
+
+The user can click the button again in case he changed his mind or if the button was pressed by mistake. returning it back to the original icon.
+
+![screen shot of login button](readmeContent/userStories/10.3.png)
+</details>
+
+11. As a **logged-in user** I can **create a new post** so that **I can post content on the site for other users to view**
+
+<details>
+<summary>
+Click here to see the user story validation
+</summary>
+
+While logged in and in the main page a **Create a new post** button will be visible. Once it's clicked the user will be redirected to the post creation page.
+
+![screen shot of login button](readmeContent/userStories/11.1.png)
+
+In the creation page user is required to provide a title and a body for his post. An image is no required as there is a placeholder in case none is provided.
+
+![screen shot of login button](readmeContent/userStories/11.2.png)
+
+12. As a **logged in site user** I can **edit a post (subject header /text body)** so that I can change the content if required
+
+<details>
+<summary>
+Click here to see the user story validation
+</summary>
+
+When inside one of the posts that was created by the user an **Update** button is visible underneath the post title. Clicking it will redirect user to the update post form.
+
+![screen shot of login button](readmeContent/userStories/12.1.png)
+
+Inside the update post form user is able to change the title, body and image of the same post. Once user is finished with alterations just hit **Submit post** button and the changes will be applied
+![screen shot of login button](readmeContent/userStories/11.2.png)
+</details>
+
+13. As a **logged-in site user** I can **leave comments on a post** so that **I can take an active role in the forum (be involved in the conversation/express my opinion)**
+
+<details>
+<summary>
+Click here to see the user story validation
+</summary>
+
+Logged in users have access to the comment form which displays the user name and a empty text field, once **submit** button is pressed and form is succesfully processed the user comment will be displayed in the comment section.
+
+![screen shot of login button](readmeContent/userStories/13.1.png)
+
+</details>
+
+14. As a **Site User** I can **delete a post that I have posted** so that **I can take content off the website**
+
+<details>
+<summary>
+Click here to see the user story validation
+</summary>
+
+When inside one of the posts that was created by the user a **Delete** button is visible underneath the post title. Clicking it will redirect user to the delete post URL.
+
+![screen shot of login button](readmeContent/userStories/14.1.png)
+
+On the delete post URL the user will prompted with a choice to delete the post or to return.
+
+![screen shot of login button](readmeContent/userStories/14.1.png)
+
+</details>
 ___
 
 ### ii. Validation testing
@@ -842,7 +1052,7 @@ ___
 <details><summary>
 Click on the link to see the W3Validator validation testing</summary>
 
-[screen shot of Jigsaw validation test](readmeContent/validation/css/css.png)
+![screen shot of Jigsaw validation test](readmeContent/validation/css/css.png)
 </details>
 
 #### CSS
@@ -850,19 +1060,19 @@ Click on the link to see the W3Validator validation testing</summary>
 <details><summary>
 Click on the link to see the Jigsaw validation testing</summary>
 
-[screen shot of Jigsaw validation test](readmeContent/validation/css/css.png)
+![screen shot of Jigsaw validation test](readmeContent/validation/css/css.png)
 </details>
 
 #### Python
 
-[Click on the link to go to the Python code validation](readmeContent/validation/python)
+[Click on the link to go to the Python code validation page](readmeContent/validation/python)
 
 #### JavaScript
 
 <details><summary>
 Click on the link to see the Jshint validation testing</summary>
 
-[screen shot of jshint validation test](readmeContent/validation/jshint/jsHintValidation.png)
+![screen shot of jshint validation test](readmeContent/validation/jshint/jsHintValidation.png)
 </details>
 
 ___

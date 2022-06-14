@@ -21,7 +21,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-light navbar-expand-md bg-primary justify-content-center">
+  <nav class="navbar navbar-light navbar-expand-md bg-primary justify-content-center mb-5">
     <a href="{% url 'home' %}" class="navbar-brand d-flex mr-auto text-white">Code Diary</a>
     <div class="nav navbar-nav ml-auto justify-content-end">
       {% if request.user.is_authenticated %}
@@ -38,7 +38,7 @@
             </div>
         </div>
       {% else %}
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+        <button class="navbar-toggler mb-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse w-100" id="collapsingNavbar">
