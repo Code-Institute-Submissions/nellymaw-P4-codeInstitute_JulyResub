@@ -1059,6 +1059,6 @@ General troubleshoot
 Massive thanks to the technology gurus out there, specially John Elder from codemy.com youtube channel who was an absolute legend through his youtube series, everyone involved with freeCodeCamp, all the staff at Code Institute.
 Special thanks to Lukaz Makinia from who most of my understanding of this language came from.
 
-
+And finally to my girlfriend who somehow manage to keep up with me through this (at some times) soul crushing endeavours.
 
 [Table of Contents](#home)
