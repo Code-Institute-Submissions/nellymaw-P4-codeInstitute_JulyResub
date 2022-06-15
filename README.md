@@ -62,7 +62,7 @@ ___
         - [Sign out](#sign-out)
         - [Sign up](#sign-up)
       - [Feature 5 Posts](#feature-5-posts)
-      - [Feature 8 – Comments](#feature-8--comments)
+      - [Feature 6 – Comments](#feature-6--comments)
         - [Features remaining to implement (long term objectives)](#features-remaining-to-implement-long-term-objectives)
   - [3. Testing](#3-testing)
     - [i. User stories testing](#i-user-stories-testing)
@@ -95,7 +95,7 @@ ___
 
 #### User stories
 
-1. As a **site user** I can **login with my username and password** so that **I can access the sites full functionality**
+1. As a **site user** I can **login with my username and password** so that **I can access the site's full functionality**
 
 2. As a **logged-in site user** I can **log out of my account** so that **other users cannot access my account**
 
@@ -103,7 +103,7 @@ ___
 
 4. As a **site user** I can **register** so that **I may login and access the full functionality of commenting and liking posts**
 
-5. As a **site user**, i can **receive feedback if an URL is invalid, so that I receive a graceful UX and be correctly notified**
+5. As a **site user**, I can **receive feedback if an URL is invalid so that I receive a graceful UX and be correctly notified**
 
 6. As a **guest/logged-in user** I can **view the latest 3 posts** so that **I can keep up to date with the latest posts**
 
@@ -122,6 +122,8 @@ ___
 13. As a **logged-in site user** I can **leave comments on a post** so that **I can take an active role in the forum (be involved in the conversation/express my opinion)**
 
 14. As a **Site User** I can **delete a post that I have posted** so that **I can take content off the website**
+
+15. As a **logged-in** site user I can **change my profile picture** so that **I can differentiate myself from the other users**
 
 [Table of Contents](#home)
 ___
@@ -716,7 +718,7 @@ The user will see value of signing up to be able to create/edit/delete posts in 
 
 ___
 
-#### Feature 8 – Comments
+#### Feature 6 – Comments
 
 The user will see value of signing up to be able to add new comment on a post and potentially interact with other users
 
@@ -998,6 +1000,8 @@ In the creation page user is required to provide a title and a body for his post
 
 ![screen shot of login button](readmeContent/userStories/11.2.png)
 
+</details>
+
 12. As a **logged in site user** I can **edit a post (subject header /text body)** so that I can change the content if required
 
 <details>
@@ -1039,7 +1043,26 @@ When inside one of the posts that was created by the user a **Delete** button is
 
 On the delete post URL the user will prompted with a choice to delete the post or to return.
 
-![screen shot of login button](readmeContent/userStories/14.1.png)
+![screen shot of login button](readmeContent/userStories/14.2.png)
+
+</details>
+
+15. As a **logged-in** site user I can **change my profile picture** so that **I can differentiate myself from the other users**
+
+<details>
+<summary>
+Click here to see the user story validation
+</summary>
+
+Click the dropdown menu at the end of the navbar to make the **Edit profile** button visible.
+
+![screen shot of login button](readmeContent/userStories/15.1.png)
+
+Once in the Edit profile page the user will be able to click the **"Browse"** button found underneath his *current* profile picture. Once new picture is selected the user only has to press **"Save changes"** button for the changes to take effect.
+
+![screen shot of login button](readmeContent/userStories/15.2.png)
+
+*New picture will be updated on navbar
 
 </details>
 ___
