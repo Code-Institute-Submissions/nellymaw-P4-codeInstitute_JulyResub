@@ -5,19 +5,19 @@
 <details>
 <summary>Click here to view phone viewport</summary>
 
-![screenshot of phone viewport](readmeContent/docs/responsiveness/responsivephone.png)
+![screenshot of phone viewport](readmeContent/docs/responsiveness/responsivePhone.png)
 </details>
 
 <details>
 <summary>Click here to view tablet viewport</summary>
 
-![screenshot of tablet viewport](readmeContent/docs/responsiveness/responsivetablet.png)
+![screenshot of tablet viewport](readmeContent/docs/responsiveness/responsiveTablet.png)
 </details>
 
 <details>
 <summary>Click here to view laptop viewport</summary>
 
-![screenshot of laptop viewport](readmeContent/docs/responsiveness/responsivelaptop.png)
+![screenshot of laptop viewport](readmeContent/docs/responsiveness/responsiveLaptop.png)
 </details>
 
 <details>
@@ -57,14 +57,17 @@ ___
       - [Feature 1 - Navigation bar](#feature-1---navigation-bar)
       - [Feature 2 - Footer](#feature-2---footer)
       - [Feature 3 - Home page](#feature-3---home-page)
-      - [Feature 4 Account Management](#feature-4-account-management)
+      - [Feature 4 - Account Management](#feature-4---account-management)
         - [Sign in](#sign-in)
         - [Sign out](#sign-out)
         - [Sign up](#sign-up)
-      - [Feature 5 Posts](#feature-5-posts)
+      - [Feature 5 - Posts](#feature-5---posts)
       - [Feature 6 – Comments](#feature-6--comments)
         - [Features remaining to implement (long term objectives)](#features-remaining-to-implement-long-term-objectives)
-  - [3. Testing](#3-testing)
+  - [3. Technologies Used](#3-technologies-used)
+    - [Languages](#languages)
+    - [Other Technologies](#other-technologies)
+  - [4. Testing](#4-testing)
     - [i. User stories testing](#i-user-stories-testing)
     - [ii. Validation testing](#ii-validation-testing)
       - [HTML](#html)
@@ -72,13 +75,15 @@ ___
       - [Python](#python)
       - [JavaScript](#javascript)
     - [iv. Unfixed Bugs](#iv-unfixed-bugs)
-  - [4. Deployment](#4-deployment)
+  - [5. Deployment](#5-deployment)
     - [Forking the GitHub Repository](#forking-the-github-repository)
     - [Making a Local Clone](#making-a-local-clone)
     - [Gitpod](#gitpod)
-  - [5. Technologies Used](#5-technologies-used)
-    - [Languages](#languages)
-    - [Other Technologies](#other-technologies)
+    - [Setting up basic Django Project and Deploying to Heroku](#setting-up-basic-django-project-and-deploying-to-heroku)
+      - [Installing Django and supporting libraries](#installing-django-and-supporting-libraries)
+      - [Deploying an app to Heroku](#deploying-an-app-to-heroku)
+      - [Attach the Database](#attach-the-database)
+      - [Get our static and media files stored on Cloudinary](#get-our-static-and-media-files-stored-on-cloudinary)
   - [6. Credits](#6-credits)
   - [7. Acknowledgements](#7-acknowledgements)
 
@@ -462,7 +467,7 @@ The homepage consists of
 
 ___
 
-#### Feature 4 Account Management
+#### Feature 4 - Account Management
 
 This section allows the user to independently register for an account, sign in/out and change their password so they can access the forum for more functionality
 
@@ -584,7 +589,7 @@ ___
 
 ___
 
-#### Feature 5 Posts
+#### Feature 5 - Posts
 
 The user will see value of signing up to be able to create/edit/delete posts in order to be an active user of the forum
 
@@ -823,8 +828,125 @@ ___
 
 ___
 
+## 3. Technologies Used
 
-## 3. Testing
+### Languages
+
+[Django](https://www.djangoproject.com/)
+
+- This project was created using the Django framework, the back-end logic and the means to run/view the Website.
+- The Django unit test library was used for unit tests
+
+[HTML](https://en.wikipedia.org/wiki/HTML)
+
+- This project uses HTML as the main language used to complete the structure of the Website.
+
+[CSS](https://en.wikipedia.org/wiki/CSS)
+
+- This project uses custom written CSS to style the Website.
+  
+[JavaScript](https://www.javascript.com)
+
+- JavaScript is used all scripting on the site
+
+Python 3 - this projects core was created using Python, the back-end logic and the means to run/view the Website.
+*Package used for virtual environment:*
+
+- pipenv== 2022.5.2
+
+*Python Modules used (These can be found in the requirements.txt project file):*
+
+- asgiref==3.5.2; python_version >= '3.7'
+- bleach==5.0.0; python_version >= '3.7'
+- certifi==2022.5.18.1; python_version >= '3.6'
+- cffi==1.15.0
+- charset-normalizer==2.0.12; python_version >= '3'
+- cloudinary==1.29.0
+- cryptography==37.0.2
+- defusedxml==0.7.1; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'
+- dj-database-url==0.5.0
+- dj3-cloudinary-storage==0.0.6
+- django-allauth==0.50.0
+- django-crispy-forms==1.14.0
+- django-summernote==0.8.20.0
+- django==4.0.5
+- gunicorn==20.1.0
+- idna==3.3; python_version >= '3'
+- oauthlib==3.2.0; python_version >= '3.6'
+- pillow==9.1.1
+- psycopg2==2.9.3
+- pycparser==2.21
+- pyjwt[crypto]==2.4.0; python_version >= '3.6'
+- python3-openid==3.2.0
+- requests-oauthlib==1.3.1; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
+- requests==2.27.1; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'
+- setuptools==62.3.2; python_version >= '3.7'
+- six==1.16.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
+- sqlparse==0.4.2; python_version >= '3.5'
+- tzdata==2022.1; sys_platform == 'win32'
+- urllib3==1.26.9; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'
+- webencodings==0.5.1
+
+### Other Technologies
+
+[BootsWatch](https://bootswatch.com/)
+
+- Bootswatch was used through the website for layout and responsiveness. This framework is based on [Bootstrap](https://getbootstrap.com/readme/docs/4.0) and uses icons from [Font Awesome](https://fontawesome.com/) and fonts from [Google Fonts](https://fonts.google.com/)
+
+[Visual Studio Code](https://code.visualstudio.com/)
+
+- Visual Studio Code was used as the IDE for this project.
+
+[Git](https://git-scm.com/)
+
+- Git has been used for Version Control.
+
+[GitHub](https://github.com/)
+
+- GitHub has been used to create a repository to host the project and receive updated commits from GitPod.
+
+[Heroku](https://id.heroku.com/login)
+
+- Used to deploy the application.
+
+[Cloudinary](https://cloudinary.com/)
+
+- Cloudinary cloud is used as storage solution
+
+[Postgres](https://www.postgresql.org/)
+
+- The deployed project on Heroku uses a Postgres databaseHTML Markup Validation Service (https://validator.w3.org/)
+- HTML validation service for validation the css in the project
+
+[CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+
+- CSS validation service for validation the css in the project
+
+[JSHint](https://jshint.com/)
+
+- For javascript code quality
+
+[PEP8 Online Validation Service](http://pep8online.com)
+
+- The PEP8 Online Validation Service was used to validate the Python document for this project and to identify any issues with the code.Mozilla DevTools
+- Firefox's built in developer tools are used to inspect page elements and help debug issues with the site layout and test different CSS styles.
+
+[Balsamiq Wireframes](https://balsamiq.com/)
+
+- This was used to create wireframes for 'The Skeleton Plane' stage of UX design.
+
+[SQL DRAW](https://drawsql.app/)
+
+- Database diagram editor
+
+[Am I Responsive](http://ami.responsivedesign.is/)
+
+- Multi Device Website Mockup Generator was used to create the Mock up image in this README
+
+[Table of Contents](#home)
+___
+
+## 4. Testing
 
 ### i. User stories testing
 
@@ -1105,7 +1227,7 @@ ___
 No known unfixed bugs
 ___
 
-## 4. Deployment
+## 5. Deployment
 
 ### Forking the GitHub Repository
 
@@ -1142,127 +1264,89 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 ### Gitpod
 
 1. Install the gitpod browser extension. [Gitpod Browser Extension](https://www.gitpod.io/docs/browser-extension/)
-2. Go to the project repository. [Password Generator](https://github.com/nellymaw/P4-codeInstitute)
+2. Go to the project repository. [Code diary Repository](https://github.com/nellymaw/P4-codeInstitute)
 3. click the gitpod button beside the about section.  ![Gitpod Deploy](readmeContent/docs/gitpodDeploy.png)
 
-___
 
-## 5. Technologies Used
+### Setting up basic Django Project and Deploying to Heroku
 
-### Languages
+#### Installing Django and supporting libraries
 
-[Django](https://www.djangoproject.com/)
+In the Terminal:
 
-- This project was created using the Django framework, the back-end logic and the means to run/view the Website.
-- The Django unit test library was used for unit tests
+1. Install Django and gunicorn:
+pip3 install 'django<4' gunicorn
+2. Install supporting libraries:
+pip3 install dj_database_url psycopg2
+3. Install Cloudinary Libraries
+pip3 install dj3-cloudinary-storage
 
-[HTML](https://en.wikipedia.org/wiki/HTML)
+#### Deploying an app to Heroku
 
-- This project uses HTML as the main language used to complete the structure of the Website.
+**Create the Heroku app**
 
-[CSS](https://en.wikipedia.org/wiki/CSS)
+**In heroku.com**
+*(Note: must be logged in)*
 
-- This project uses custom written CSS to style the Website.
-  
-[JavaScript](https://www.javascript.com)
+1. Create new Heroku App
+APP_NAME, Location = Europe
+2. Add Database to App Resources
+Located in the Resources Tab, Add-ons, search and add e.g. ‘Heroku Postgres’
+3. Copy DATABASE_URL value
+Located in the Settings Tab, click reveal Config Vars, Copy Text
 
-- JavaScript is used all scripting on the site
+#### Attach the Database
 
-Python 3 - this projects core was created using Python, the back-end logic and the means to run/view the Website.
-*Package used for virtual environment:*
+**In IDE**
 
-- pipenv== 2022.5.2
+Create new env.py file on top level directory *E.g. env.py*
 
-*Python Modules used (These can be found in the requirements.txt project file):*
+File | Code |
+------------ | -------------
+env.py|Import os library<br>import os<br><br>os.environ["DATABASE_URL"] = "Paste in Heroku DATABASE_URL Link"Link"<br>os.environ["SECRET_KEY"] = "Make up your own randomSecretKey"
 
-- asgiref==3.5.2; python_version >= '3.7'
-- bleach==5.0.0; python_version >= '3.7'
-- certifi==2022.5.18.1; python_version >= '3.6'
-- cffi==1.15.0
-- charset-normalizer==2.0.12; python_version >= '3'
-- cloudinary==1.29.0
-- cryptography==37.0.2
-- defusedxml==0.7.1; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'
-- dj-database-url==0.5.0
-- dj3-cloudinary-storage==0.0.6
-- django-allauth==0.50.0
-- django-crispy-forms==1.14.0
-- django-summernote==0.8.20.0
-- django==4.0.5
-- gunicorn==20.1.0
-- idna==3.3; python_version >= '3'
-- oauthlib==3.2.0; python_version >= '3.6'
-- pillow==9.1.1
-- psycopg2==2.9.3
-- pycparser==2.21
-- pyjwt[crypto]==2.4.0; python_version >= '3.6'
-- python3-openid==3.2.0
-- requests-oauthlib==1.3.1; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
-- requests==2.27.1; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'
-- setuptools==62.3.2; python_version >= '3.7'
-- six==1.16.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
-- sqlparse==0.4.2; python_version >= '3.5'
-- tzdata==2022.1; sys_platform == 'win32'
-- urllib3==1.26.9; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'
-- webencodings==0.5.1
+**In heroku.com**
 
-### Other Technologies
+- Add Secret Key to Config Vars
+SECRET_KEY, “randomSecretKey”
 
-[BootsWatch](https://bootswatch.com/)
 
-- Bootswatch was used through the website for layout and responsiveness. This framework is based on [Bootstrap](https://getbootstrap.com/readme/docs/4.0) and uses icons from [Font Awesome](https://fontawesome.com/) and fonts from [Google Fonts](https://fonts.google.com/)
+#### Get our static and media files stored on Cloudinary
 
-[Visual Studio Code](https://code.visualstudio.com/)
+**In Cloudinary.com:** *(Note: must be logged in)*
 
-- Visual Studio Code was used as the IDE for this project.
+- Copy your CLOUDINARY_URL e.g. API Environment Variable.
+From Cloudinary Dashboard
 
-[Git](https://git-scm.com/)
+**In env.py**
 
-- Git has been used for Version Control.
+Add Cloudinary URL to env.py - be sure to paste in the correct section of the link
+os.environ["CLOUDINARY_URL"] = "cloudinary://xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
-[GitHub](https://github.com/)
+File | Code |
+------------ | -------------
+env.py|Import os library<br>import os<br><br>os.environ["DATABASE_URL"] = "Paste in Heroku DATABASE_URL Link"Link"<br>os.environ["SECRET_KEY"] = "Make up your own randomSecretKey"<br>**os.environ["CLOUDINARY_URL"] = "cloudinary://xxxxxxxxxxxxxxxxxxxxxxxxxxxx"**
 
-- GitHub has been used to create a repository to host the project and receive updated commits from GitPod.
+**In Heroku**
 
-[Heroku](https://id.heroku.com/login)
+- Add Cloudinary URL to Heroku Config Vars - be sure to paste in the correct section of the link
+Add to Settings tab in Config Vars e.g. COUDINARY_URL, cloudinary://************************
+- Add DISABLE_COLLECTSTATIC to Heroku Config Vars (temporary step for the moment, will be removed before deployment)
+e.g. DISABLE_COLLECTSTATIC, 1
 
-- Used to deploy the application.
+**In IDE**
 
-[Cloudinary](https://cloudinary.com/)
+*Add, Commit and Push*
 
-- Cloudinary cloud is used as storage solution
+- git add .
+- git commit -m “Deployment Commit”
+- git push
 
-[Postgres](https://www.postgresql.org/)
+*Push to heroku*
 
-- The deployed project on Heroku uses a Postgres databaseHTML Markup Validation Service (https://validator.w3.org/)
-- HTML validation service for validation the css in the project
+- git push heroku main
 
-[CSS Validation Service](https://jigsaw.w3.org/css-validator/)
-
-- CSS validation service for validation the css in the project
-
-[JSHint](https://jshint.com/)
-
-- For javascript code quality
-
-[PEP8 Online Validation Service](http://pep8online.com)
-
-- The PEP8 Online Validation Service was used to validate the Python document for this project and to identify any issues with the code.Mozilla DevTools
-- Firefox's built in developer tools are used to inspect page elements and help debug issues with the site layout and test different CSS styles.
-
-[Balsamiq Wireframes](https://balsamiq.com/)
-
-- This was used to create wireframes for 'The Skeleton Plane' stage of UX design.
-
-[SQL DRAW](https://drawsql.app/)
-
-- Database diagram editor
-
-[Am I Responsive](http://ami.responsivedesign.is/)
-
-- Multi Device Website Mockup Generator was used to create the Mock up image in this README
-
-[Table of Contents](#home)
+**To install heroku CLI please check the official documentation at [HEROKU CLI](https://devcenter.heroku.com/articles/heroku-cli)**
 ___
 
 ## 6. Credits
@@ -1270,6 +1354,7 @@ ___
 See below list of tutorials and documentation i used throughout this project
 
 - The basic skelton setup for this project was based on  "I think therefore I blog project by the Code Institute"
+- Some troubleshoot/ideas were done/taken using/from [gigleP4](https://github.com/xiaoniuniu89/giglep4) and [coronavirusforum](https://github.com/ccarabine/coronavirusforum)
 
 - https://cloudinary.com/documentation/django_integration (which was ultimately scrapped along the project for a simplified method)
 - https://www.youtube.com/watch?v=04L0BbAcCpQ (which was found at freeCodeCamp)
