@@ -347,7 +347,7 @@ Small screen devices
 <details>
 <summary>Click here to view image </summary>
 
-![screenshot of the left corner of the navbar on small screens](readmeContent/features/navbar/smallScreen/navbarLeft.png)
+![screenshot of the left corner of the navbar on small screens](readmeContent\features\navbar\smallScreen\navbarLeft.png)
 </details>
 
 - Brand Logo
@@ -489,8 +489,6 @@ This section allows the user to independently register for an account, sign in/o
 ![screenshot of image](readmeContent/features/accountManagement/mediumScreen/signIn.png)
 </details>
 
-<br>
-
 - If the user enters both fields correctly a success message ia displayed “successfully sign is as (username)”
 
 <details>
@@ -498,8 +496,6 @@ This section allows the user to independently register for an account, sign in/o
 
 ![screenshot of image](readmeContent/features/accountManagement/mediumScreen/signInSuccess.png)
 </details>
-
-<br>
 
 - The "Login" and "Register" buttons are replaced with the user's profile picture and a dropdown menu with new buttons options: "Edit Profile" and "Logout"
 
@@ -566,7 +562,7 @@ ___
 - Admin users can create, edit and delete user profiles via the admin panel.
 
 <details>
-<summary>Click here to view images- Create user</summary>
+<summary>Click here to view image</summary>
 
 ![screenshot of update user](readmeContent/features/accountManagement/largeScreen/adminPanel/adminAddUser.png)
 </details>
@@ -574,7 +570,7 @@ ___
 - Upon User creation a Profile is automatically set for the user.
 
 <details>
-<summary>Click here to view images- Create user</summary>
+<summary>Click here to view image</summary>
 
 ![screenshot of update user](readmeContent/features/accountManagement/largeScreen/adminPanel/adminProfileDetails.png)
 </details>
@@ -597,15 +593,13 @@ The user will see value of signing up to be able to create/edit/delete posts in 
 
 **Post list**
 
-- All users can view the newest 3 posts
+- All users can view the 3 newest posts
 
 <details>
 <summary>Click here to view image  </summary>
 
 ![screenshot of image](readmeContent/features/posts/postsList/postsList.png)
 </details>
-
-<br>
 
 - **Logged in** users can add a new post through the "create a new post" button located just underneath the Posts List header
 
@@ -630,7 +624,7 @@ The user will see value of signing up to be able to create/edit/delete posts in 
 ![screenshot of image](readmeContent/features/posts/postsList/postsCardExplanation.png)
 </details>
 
-- A **logged in** user can start a new post 
+- A **logged in** user can start a new post
   - Header title displayed “Add a new post”
   - User can enter post details
     - Title (required)
@@ -669,12 +663,12 @@ The user will see value of signing up to be able to create/edit/delete posts in 
 <details>
 <summary>Click here to view image of a post - not logged in</summary>
 
-![screenshot of image](readmeContent/features/posts/postsDetails/postDetails.png)
+![screenshot of image](readmeContent/features/posts/postDetails/postDetails.png)
 </details>
 <details>
 <summary>Click here to view image of a post - logged in</summary>
 
-![screenshot of image](readmeContent/features/posts/postsDetails/postDetailsLogged.png)
+![screenshot of image](readmeContent/features/posts/postDetails/postsDetailLogged.png)
 </details>
 
 - If a user encounters an error, the relevant error page is displayed (404)
@@ -699,7 +693,7 @@ The user will see value of signing up to be able to create/edit/delete posts in 
 <details>
 <summary>Click here to view image - updated post - success message</summary>
 
-![screenshot of image](readmeContent/features/posts/updatePost/updatePostsuccess.png)
+![screenshot of image](readmeContent/features/posts/updatePost/updatePostSuccess.png)
 </details>
 
 - An owner of the post can **“Delete”** their post
@@ -821,7 +815,7 @@ ___
 
 - Edit / delete comments
 - Direct message
-- Account profile with bio amd user history of posts
+- Account profile with bio and user history of posts
 - Reply to comments
 
 [Table of Contents](#home)
@@ -835,7 +829,6 @@ ___
 [Django](https://www.djangoproject.com/)
 
 - This project was created using the Django framework, the back-end logic and the means to run/view the Website.
-- The Django unit test library was used for unit tests
 
 [HTML](https://en.wikipedia.org/wiki/HTML)
 
@@ -915,7 +908,10 @@ Python 3 - this projects core was created using Python, the back-end logic and t
 
 [Postgres](https://www.postgresql.org/)
 
-- The deployed project on Heroku uses a Postgres databaseHTML Markup Validation Service (https://validator.w3.org/)
+- The deployed project on Heroku uses a Postgres databaseHTML Markup Validation Service
+
+[W3 Validator](https://validator.w3.org/)
+
 - HTML validation service for validation the css in the project
 
 [CSS Validation Service](https://jigsaw.w3.org/css-validator/)
@@ -938,10 +934,6 @@ Python 3 - this projects core was created using Python, the back-end logic and t
 [SQL DRAW](https://drawsql.app/)
 
 - Database diagram editor
-
-[Am I Responsive](http://ami.responsivedesign.is/)
-
-- Multi Device Website Mockup Generator was used to create the Mock up image in this README
 
 [Table of Contents](#home)
 ___
@@ -1197,7 +1189,7 @@ ___
 <details><summary>
 Click on the link to see the W3Validator validation testing</summary>
 
-![screen shot of Jigsaw validation test](readmeContent/validation/css/css.png)
+![screen shot of Jigsaw validation test](readmeContent/validation/html/mainPage.png)
 </details>
 
 #### CSS
@@ -1205,7 +1197,7 @@ Click on the link to see the W3Validator validation testing</summary>
 <details><summary>
 Click on the link to see the Jigsaw validation testing</summary>
 
-![screen shot of Jigsaw validation test](readmeContent/validation/css/css.png)
+![screen shot of Jigsaw validation test](readmeContent/validation/CSS/css.png)
 </details>
 
 #### Python
@@ -1331,8 +1323,6 @@ env.py|Import os library<br>import os<br><br>os.environ["DATABASE_URL"] = "Paste
 
 - Add Cloudinary URL to Heroku Config Vars - be sure to paste in the correct section of the link
 Add to Settings tab in Config Vars e.g. COUDINARY_URL, cloudinary://************************
-- Add DISABLE_COLLECTSTATIC to Heroku Config Vars (temporary step for the moment, will be removed before deployment)
-e.g. DISABLE_COLLECTSTATIC, 1
 
 **In IDE**
 
