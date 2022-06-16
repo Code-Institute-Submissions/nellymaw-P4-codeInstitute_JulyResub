@@ -388,7 +388,7 @@ Small screen devices
 <details>
 <summary>Click here to view image </summary>
 
-![screenshot of image](readmeContent/features/navbar/mediumScreen/navbarLeft.png)
+![screenshot of image](readmeContent/features/navbar/mediumScreen/navbarleft.png)
 </details>
 
 - Brand Logo
