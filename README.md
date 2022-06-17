@@ -33,6 +33,7 @@ ___
     - [Project goals](#project-goals)
     - [Strategy](#strategy)
       - [User stories](#user-stories)
+    - [Agile Board](#agile-board)
     - [Scope](#scope)
       - [Strategy Trade-offs](#strategy-trade-offs)
       - [Code Structure](#code-structure)
@@ -131,6 +132,12 @@ ___
 15. As a **logged-in** site user I can **change my profile picture** so that **I can differentiate myself from the other users**
 
 [Table of Contents](#home)
+
+___
+
+### Agile Board
+
+![Agile Board](readmeContent/userStories/agileBoard.png)
 ___
 
 ### Scope
