@@ -16,7 +16,7 @@
                             {% csrf_token %}
                             <strong>Are you sure? </strong>
                             <br>
-                            <a href="{% url 'post_detail' post.pk %}" class="btn btn-secondary btn-border-none" aria-label="Go back to post">Cancel</a>
+                            <a href="{% url 'post_detail' post.slug %}" class="btn btn-secondary btn-border-none" aria-label="Go back to post">Cancel</a>
                             <button class="btn btn-danger" aria-label="delete post">Delete post!</button>
                         </form>
                     </div>

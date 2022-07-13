@@ -12,12 +12,12 @@ urlpatterns = [
           name="home"
           ),
      path(
-          'posts/<int:pk>/',
+          'posts/<slug:slug>/',
           PostDetail.as_view(),
           name='post_detail'
           ),
      path(
-          'like/<int:pk>/',
+          'like/<slug:slug>/',
           PostLike.as_view(),
           name='post_like'
           ),

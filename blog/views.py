@@ -42,9 +42,9 @@ class PostDetail(View):
         Render of post detail with context
     """
 
-    def get(self, request, pk, *args, **kwargs):
+    def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects
-        post = get_object_or_404(queryset, pk=pk)
+        post = get_object_or_404(queryset, slug=slug)
         comments = post.comment_post.order_by("created_on")
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
@@ -61,9 +61,9 @@ class PostDetail(View):
             },
         )
 
-    def post(self, request, pk, *args, **kwargs):
+    def post(self, request, slug, *args, **kwargs):
         queryset = Post.objects
-        post = get_object_or_404(queryset, pk=pk)
+        post = get_object_or_404(queryset, slug=slug)
         comments = post.comment_post.order_by("-created_on")
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
@@ -100,14 +100,14 @@ class PostLike(LoginRequiredMixin, View):
         Return a True or False depending on whether the user has liked the post
     """
 
-    def post(self, request, pk, *args, **kwargs):
-        post = get_object_or_404(Post, pk=pk)
+    def post(self, request, slug, *args, **kwargs):
+        post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
         else:
             post.likes.add(request.user)
 
-        return HttpResponseRedirect(reverse('post_detail', args=[pk]))
+        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
 class DeletePostView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
@@ -148,14 +148,14 @@ def AddPost(request):
 
         if form.is_valid():
             post = form.save(commit=False)
-            post.pk = request.POST.get('pk')
+            post.slug = slugify(request.POST["title"])
             post.owner = request.user
             post.user_name = request.user.username
             post.post_image = request.FILES.get("post_image")
             post.owner = request.user
             post.save()
             messages.success(request, 'Post submitted')
-            return redirect(reverse("post_detail", args=[post.pk]))
+            return redirect(reverse("post_detail", args=[post.slug]))
     context = {"form": form, }
     return render(request, "add_post.html", context)
 
